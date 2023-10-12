@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link rel="stylesheet" href="../CSS/css-resets.css">
+  <script src="index.js" defer></script>
+  <title>Tip Calculator App</title>
+</head>
+<body>
+
+  <div class="container">
+
+    <img src="../tip-calculator-app/images/logo.svg" alt="" class="logo">
+
+    <div class="inner__wrapper">
+
+      <div class="sec1">
+
+        <div class="bill__wrapper">
+
+          <div class="bill__container">
+            <p class="bill">Bill</p>
+            <p class="error-msg">Enter a number</p>
+          </div>
+  
+          <div class="input-field__dollar">
+            <img src="../tip-calculator-app/images/icon-dollar.svg" alt="" class="dollar__icon">
+            <input type="text" placeholder="0" id="bill">
+          </div>
+  
+        </div>
+  
+        <div class="select-tip__wrapper">
+  
+          <p class="select__tip">Select Tip %</p>
+  
+          <div class="tip__buttons">
+    
+            <button class="five__percent" id="five__percent percentage" data-tip="5">5%</button>
+            <button class="ten__percent" id="ten__percent percentage" data-tip="10">10%</button>
+            <button class="fifteen__percent" id="fifteen__percent percentage" data-tip="15">15%</button>
+            <button class="twenty-five__percent" id="twenty-five__percent percentage" data-tip="25">25%</button>
+            <button class="fifty__percent" id="fifty__percent percentage" data-tip="50">50%</button>
+            <input type="text" placeholder="Custom" id="custom">
+    
+          </div>
+  
+        </div>
+  
+        <div class="num-people__wrapper">
+  
+          <!-- <p class="num-of-people">Calculate tip & total</p> -->
+          
+          <div class="num-of-people__container">
+            <p class="num-of-people">Number of people</p>
+            <p class="error__msg">Enter a number</p>
+          </div>
+          
+  
+          <div class="input-field__people">
+            <img src="../tip-calculator-app/images/icon-person.svg" alt="" class="people__icon">
+            <input type="text" placeholder="1" id="number__people">
+
+            <!-- <div class="calculate" id="calculate" aria-label="calculate button">Calculate</div> -->
+          </div>
+  
+        </div>
+
+      </div>
+
+      <div class="sec2">
+
+        <div class="tip__total-wrapper">
+
+          <div class="tip__amount-wrapper">
+
+            <div class="tip__amount-text">
+  
+              <p class="tip__amount">tip amount</p>
+              <p class="per__person">/ person</p>
+  
+            </div>
+  
+            <div class="tip__amount-figure">
+              <p class="tip__figure" id="tip__figure">
+                <span class="dollar__sign">$</span>0.00
+              </p>
+            </div>
+            
+          </div>
+  
+          <div class="total__wrapper">
+  
+            <div class="total__text">
+  
+              <p class="total">total</p>
+              <p class="per__person">/ person</p>
+  
+            </div>
+  
+            <div class="total__amount-figure">
+              <p class="total__figure" id="total__figure">
+                <span class="dollar__sign">$</span>0.00
+              </p>
+            </div>
+  
+          </div>
+
+        </div>
+
+        <button class="reset" id="reset">reset</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
