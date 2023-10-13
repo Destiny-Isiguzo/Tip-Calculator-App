@@ -1,6 +1,7 @@
 # Tip Calculator
 
-A simple and intuitive tip calculator built with JavaScript. This application allows users to input the total bill amount, the number of people splitting the bill, and choose a tip percentage. 
+A simple and intuitive tip calculator built with JavaScript. 
+This application allows users to input the total bill amount, the number of people splitting the bill, and choose a tip percentage. 
 The application then calculates and displays the tip amount per person and the total amount per person.
 
 ## Features
