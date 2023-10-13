@@ -19,35 +19,19 @@ let billValue = 0;
 let tipValue = 0;
 let personValue = 1;
 
-billInputField.addEventListener('keyup', (e) => {
-  billValue = +e.target.value; 
-
-  if (isNaN(+billInputField.value)) {
+const errorHandling = (inputField, errorMsg) => {
+  if(+isNaN(+inputField.value)) {
     errorMsg.style.display = 'block';
-    billInputField.style.borderColor = 'red';
-    billInputField.style.caretColor = 'red';
+    inputField.style.borderColor = 'red';
+    inputField.style.caretColor = 'red';
   }else {
-    errorMsg.style.display = 'none';
-    billInputField.style.borderColor = 'transparent';
-    billInputField.style.caretColor = 'hsl(172, 67%, 45%)';
+    errorMsg.style.display = "none";
+    inputField.style.borderColor = 'transparent';
+    inputField.style.caretColor = 'hsl(172, 67%, 45%)';
   }
-})
+}
 
-numOfPeopleInputField.addEventListener('keyup', (e) => {
-  personValue = +e.target.value; 
-
-  if (isNaN(+numOfPeopleInputField.value)) {
-    errorMsg2.style.display = 'block';
-    numOfPeopleInputField.style.borderColor = 'red';
-    numOfPeopleInputField.style.caretColor = 'red';
-  }else {
-    errorMsg2.style.display = 'none';
-    numOfPeopleInputField.style.borderColor = 'transparent';
-    numOfPeopleInputField.style.caretColor = 'hsl(172, 67%, 45%)';
-  }
-})
-
-function updateAmount() {
+const updateTipAndTotal = () => {
   let tipAmount = (tipValue / 100) * billValue ;
   let billAmount = (billValue + tipValue) / personValue;
   let personPerTip = tipAmount / personValue;
@@ -55,9 +39,20 @@ function updateAmount() {
   totalFigureTextContent.innerText = '$' + billAmount.toFixed(2)
 }
 
-customPercentage.addEventListener('keyup', (e) => {
+billInputField.addEventListener('input', (e) => {
+  billValue = +e.target.value; 
+  errorHandling(billInputField, errorMsg);
+})
+
+numOfPeopleInputField.addEventListener('input', (e) => {
+  personValue = +e.target.value; 
+  errorHandling(numOfPeopleInputField, errorMsg2);
+})
+
+
+customPercentage.addEventListener('input', (e) => {
   tipValue = +e.target.value; 
-  updateAmount();
+  updateTipAndTotal();
 })
 
 resetBtn.addEventListener('click', () => {
@@ -65,12 +60,12 @@ resetBtn.addEventListener('click', () => {
   totalFigureTextContent.innerText = '$0.00';
   billInputField.value = '';
   numOfPeopleInputField.value = '';
-  customPercentage.value = 'Custom';
+  customPercentage.value = '';
 })
 
 allBtns.addEventListener('click', (e) => {
   const value = +e.target.getAttribute('data-tip');
   if (!value) return;
   tipValue = value;
-  updateAmount();
+  updateTipAndTotal();
 })
